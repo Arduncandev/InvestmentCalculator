@@ -13,7 +13,7 @@ function App() {
     duration: 10,
   });
 
-  let annualData = calculateInvestmentResults(userInput);
+  //let annualData = calculateInvestmentResults(userInput);
 
   const handleChange = (field, value) => {
     setUserInput((prevInput) => ({
@@ -22,7 +22,7 @@ function App() {
       
     }));
     
-    annualData = calculateInvestmentResults(userInput);
+    //annualData = calculateInvestmentResults(userInput);
   }
 
 
@@ -32,7 +32,7 @@ function App() {
     <>
       <Header />
       <UserInput userInput={userInput} onChange={handleChange} />
-      <Results results={annualData} />
+      <Results userInput={userInput} />
     </>
   )
 }

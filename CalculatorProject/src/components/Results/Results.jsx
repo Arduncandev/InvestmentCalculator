@@ -1,8 +1,10 @@
 import { calculateInvestmentResults, formatter } from '../../util/investment';
 import './results.css';
 
-export default function Results( { results } ) {
+export default function Results( { userInput } ) {
     
+    const results = calculateInvestmentResults(userInput);
+
 
     return (
         <table id="result">
@@ -18,7 +20,7 @@ export default function Results( { results } ) {
             <tbody>
                 {results.map((data) => {
                     const totalInterest = data.valueEndOfYear - 
-                        data.annualInvestment * data.year;
+                        data.annualInvestment * data.year - userInput.initialInvestment;
                     const totalAmountInvested = 
                         data.valueEndOfYear - totalInterest;
                     
